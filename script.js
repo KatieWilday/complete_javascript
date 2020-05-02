@@ -53,9 +53,9 @@ if (height == '23') {
 
 //Coding CHALLENGE
 
-var scoreJohn = (189 + 120 + 103) / 3;
-var scoreMike = (129 + 94 + 123) / 3;
-var scoreMary = (97 + 134 + 105) / 3;
+var scoreJohn = (200 + 120 + 94) / 3;
+var scoreMike = (300 + 94 + 200) / 3;
+var scoreMary = (200 + 300 + 100) / 3;
 console.log(scoreJohn, scoreMike, scoreMary);
 
 if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
