@@ -70,7 +70,7 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
 */
 
 //Functions - containers that hold code and pass args into
-
+//Dry - Do Not Repeat
 function calculateAge(birthYear) {
   return 2020 - birthYear
 }
@@ -81,10 +81,19 @@ var ageKatie = calculateAge(1969)
 console.log(ageJohn, ageMike, ageKatie)
 
 
-function retirement(year, firstName) {
+function retirementYear(year, firstName) {
   age = calculateAge(year)
   retirement = 65 - age
-  console.log(firstName + " retires in " + retirement + " years.")
+
+  if (retirement > 0){
+    console.log(firstName + " retires in " + retirement + " years.")
+  }
+  else {
+    console.log(firstName + " is already retired.")
+  }
+
 }
 
-retirement(1990, "John")
+retirementYear(1990, "John")
+retirementYear(1948, "Mike")
+retirementYear(1969, "Katie")
