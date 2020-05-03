@@ -126,6 +126,7 @@ console.log(whatDoYouDo("banker", "Peter"))
 //Arrays
 
 //Initialize new Array
+/*
 names = ["Katie", "Mark", "Pam", "designer"]
 years = [1990, 1969, 1948]
 
@@ -145,3 +146,31 @@ console.log(names.indexOf("Katie"))
 
 isDesigner = names.indexOf("designer") === -1 ? "Katie is not a designer" : "Katie is a designer"
 console.log(isDesigner)
+*/
+
+//Coding Challenge 3
+
+
+
+function tipCalc(bill) {
+  var percentage;
+    if (bill < 50) {
+      percentage = .2
+    }
+    else if (bill >= 50 && bill < 200) {
+      percentage = .15
+    }
+    else {
+      percentage = .1
+    }
+    return percentage * bill
+}
+
+bills = [124, 48, 269]
+tips = [tipCalc(bills[0]),
+        tipCalc(bills[1]),
+        tipCalc(bills[2])]
+finalValues = [bills[0] + tips[0],
+               bills[1] + tips[1],
+               bills[2] + tips[2]]
+console.log(tips, finalValues)
