@@ -241,6 +241,13 @@ john = {
   }
 }
 
-john.calcBMI()
-mark.calcBMI()
-console.log(mark, john)
+
+if (john.calcBMI() > mark.calcBMI()){
+  console.log(john.fullName + " has a higher bmi of " + john.bmi)
+}
+else if (mark.bmi > john.bmi) {
+  console.log(mark.fullName + " has a higher bmi of " + mark.bmi)
+}
+else {
+  console.log("They have the same bmi")
+}
