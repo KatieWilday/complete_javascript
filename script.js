@@ -102,7 +102,9 @@ retirementYear(1969, "Katie")
 
 
 //Function Statements and Expressions
-
+//Expressions - always produces a value (2 + 3)
+//Statements - if/else, loops
+/*
 whatDoYouDo = function(job, firstName){ //Function Expression
   switch(job){
     case 'teacher':
@@ -119,3 +121,18 @@ whatDoYouDo = function(job, firstName){ //Function Expression
 console.log(whatDoYouDo("teacher", "Katie"))
 console.log(whatDoYouDo("designer", "Sam"))
 console.log(whatDoYouDo("banker", "Peter"))
+*/
+
+//Arrays
+
+//Initialize new Array
+names = ["Katie", "Mark", "Pam"]
+years = [1990, 1969, 1948]
+
+console.log(names[2])
+console.log(names.length)
+
+//Mutate Array Data
+names[1] = "Ben"
+names[5] = "Mary"
+console.log(names)
