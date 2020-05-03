@@ -126,13 +126,22 @@ console.log(whatDoYouDo("banker", "Peter"))
 //Arrays
 
 //Initialize new Array
-names = ["Katie", "Mark", "Pam"]
+names = ["Katie", "Mark", "Pam", "designer"]
 years = [1990, 1969, 1948]
 
-console.log(names[2])
-console.log(names.length)
+//console.log(names[2])
+//console.log(names.length)
 
+
+names.push("Sara") //add to end of array
+names.unshift("Hanna") //add to beginning of array
+names.pop() //remove from end of array
+names.shift() //remove form beginning of Array
+names.indexOf("Katie") //tells where element is in array
 //Mutate Array Data
-names[1] = "Ben"
-names[5] = "Mary"
-console.log(names)
+//names[1] = "Ben"
+//names[5] = "Mary"
+console.log(names.indexOf("Katie"))
+
+isDesigner = names.indexOf("designer") === -1 ? "Katie is not a designer" : "Katie is a designer"
+console.log(isDesigner)
