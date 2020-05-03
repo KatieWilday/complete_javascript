@@ -71,6 +71,7 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
 
 //Functions - containers that hold code and pass args into
 //Dry - Do Not Repeat
+/*
 function calculateAge(birthYear) {
   return 2020 - birthYear
 }
@@ -97,3 +98,24 @@ function retirementYear(year, firstName) {
 retirementYear(1990, "John")
 retirementYear(1948, "Mike")
 retirementYear(1969, "Katie")
+*/
+
+
+//Function Statements and Expressions
+
+whatDoYouDo = function(job, firstName){ //Function Expression
+  switch(job){
+    case 'teacher':
+      return firstName + " teaches kids how to code. "
+    case 'driver':
+      return firstName + " drives for red car. "
+    case 'designer':
+      return firstName + " designs the room. "
+    default:
+      return firstName + " does something else. "
+  }
+}
+
+console.log(whatDoYouDo("teacher", "Katie"))
+console.log(whatDoYouDo("designer", "Sam"))
+console.log(whatDoYouDo("banker", "Peter"))
