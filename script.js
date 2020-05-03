@@ -31,7 +31,7 @@ if (civilStatus === 'married') {
   console.log(firstName + ' is not married!')
 }
 */
-
+/*
 //Truthey and Falsy values
 //Falsy values = undefined, null, 0, "", NaN
 //Truthy: NOT falsy values
@@ -49,7 +49,7 @@ if (height == '23') {
   console.log("the == operator does type coercion")
 }
 
-
+*/
 
 //Coding CHALLENGE
 /*
@@ -68,6 +68,7 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
     console.log('There is a draw');
 }
 */
+
 //Functions - containers that hold code and pass args into
 
 function calculateAge(birthYear) {
@@ -78,3 +79,12 @@ var ageJohn = calculateAge(1990)
 var ageMike = calculateAge(1948)
 var ageKatie = calculateAge(1969)
 console.log(ageJohn, ageMike, ageKatie)
+
+
+function retirement(year, firstName) {
+  age = calculateAge(year)
+  retirement = 65 - age
+  console.log(firstName + " retires in " + retirement + " years.")
+}
+
+retirement(1990, "John")
