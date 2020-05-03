@@ -52,7 +52,7 @@ if (height == '23') {
 
 
 //Coding CHALLENGE
-
+/*
 var scoreJohn = (200 + 120 + 94) / 3;
 var scoreMike = (300 + 94 + 200) / 3;
 var scoreMary = (200 + 300 + 100) / 3;
@@ -67,3 +67,14 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
 } else {
     console.log('There is a draw');
 }
+*/
+//Functions - containers that hold code and pass args into
+
+function calculateAge(birthYear) {
+  return 2020 - birthYear
+}
+
+var ageJohn = calculateAge(1990)
+var ageMike = calculateAge(1948)
+var ageKatie = calculateAge(1969)
+console.log(ageJohn, ageMike, ageKatie)
