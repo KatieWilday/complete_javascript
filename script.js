@@ -216,3 +216,31 @@ john = {
 
 john.calcAge()
 console.log(john)
+
+
+
+//Coding Challeng 4
+
+mark = {
+  fullName: "Mark Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function() {
+    this.bmi = this.mass / (this.height * this.height)
+    return this.bmi
+  }
+}
+
+john = {
+  fullName: "John Smith",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function() {
+    this.bmi = this.mass / (this.height * this.height)
+    return this.bmi
+  }
+}
+
+john.calcBMI()
+mark.calcBMI()
+console.log(mark, john)
