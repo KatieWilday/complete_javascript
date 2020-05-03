@@ -175,7 +175,7 @@ console.log(tips, finalValues)
 */
 
 //Objects - order doesn't matter
-
+/*
 john = {
   firstName: "John",
   lastName: "Turner",
@@ -187,3 +187,32 @@ john = {
 
 console.log(john.firstName)
 console.log(john['lastName'])
+
+john.job = "designer"
+john["isMarried"] = true
+console.log(john)
+
+jane = new Object()
+jane.firstName = "Jane"
+jane.birthYear = 1991
+jane["lastName"] = "Smith"
+console.log(jane)
+
+*/
+
+//Object Methods
+
+john = {
+  firstName: "John",
+  lastName: "Turner",
+  birthYear: "1988",
+  family: ["Jane", "Mark", "Bob", "Emily"],
+  job: "teacher",
+  isMarried: false,
+  calcAge: function() {
+    this.age = 2020 - this.birthYear //this = points to itself/present object
+  }
+}
+
+john.calcAge()
+console.log(john)
