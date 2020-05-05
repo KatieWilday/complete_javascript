@@ -288,5 +288,6 @@ for (i = 0; i < john.length; i++) {
 }
 
 //Looping backward
-
-for (i = john.length - 1; )
+for (i = john.length - 1; i >= 0; i--){
+  console.log(john[i])
+}
