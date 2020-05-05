@@ -201,7 +201,7 @@ console.log(jane)
 */
 
 //Object Methods
-
+/*
 john = {
   firstName: "John",
   lastName: "Turner",
@@ -216,11 +216,11 @@ john = {
 
 john.calcAge()
 console.log(john)
-
+*/
 
 
 //Coding Challeng 4
-
+/*
 mark = {
   fullName: "Mark Smith",
   mass: 92,
@@ -251,3 +251,42 @@ else if (mark.bmi > john.bmi) {
 else {
   console.log("They have the same bmi")
 }
+
+*/
+
+//Loops and Iteration
+//Automate repetative tasks
+/*
+for (i = 1; i <= 20; i+=2){ //intial value, condition, counter update
+  console.log(i)
+}
+
+john = ["john", "smith", 1990, "designer", "false"]
+
+for (i = 0; i < john.length; i++) {
+console.log(john[i])
+}
+
+i = 0
+while(i < john.length){
+  console.log(john[i])
+  i++
+}
+*/
+
+//Contine and break statements - to break out of loop
+john = ["john", "smith", 1990, "designer", "false"]
+
+for (i = 0; i < john.length; i++) {
+  if (typeof john[i] !== 'string') continue //continue to next
+  console.log(john[i])
+}
+
+for (i = 0; i < john.length; i++) {
+  if (typeof john[i] !== 'string') break //stops the loop
+  console.log(john[i])
+}
+
+//Looping backward
+
+for (i = john.length - 1; )
