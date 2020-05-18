@@ -293,7 +293,7 @@ for (i = john.length - 1; i >= 0; i--){
 }
 */
 //Coding challenge 5
-john = {
+/*john = {
   fullName: "John Smith",
   bills: [124, 48, 268, 180, 42],
   calcTips: function() {
@@ -364,3 +364,10 @@ if (john.average > mark.average) {
 } else if (mark.average > john.average) {
     console.log(mark.fullName + '\'s family pays higher tips, with an average of $' + mark.average);
 }
+*/
+
+function calcAge(year){
+  console.log(2020 - year)
+}
+
+calcAge(1988)
