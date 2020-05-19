@@ -55,3 +55,11 @@ document.querySelector(".btn-roll").addEventListener("click", function(){
   }
 
 });
+
+document.querySelector(".btn-hold").addEventListener("click", function(){
+  //Add current score to global scores
+
+  //Updated User Interface (UI)
+
+  //Check if player won game
+})
