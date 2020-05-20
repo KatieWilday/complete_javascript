@@ -86,18 +86,19 @@ console.log(age, obj.city)
 */
 
 //Passing Functions As Arguments
-
+/*
 years = [1990, 1965, 1937, 2005, 1998];
 
 function arrayCalc(arr, fn) {
     var arrRes = [];
-    for (var i = 0; i < arr.length; i++) { //looped through away
+    for (var i = 0; i < arr.length; i++) { //loops through away
         arrRes.push(fn(arr[i])); //pushed result into array
     }
     return arrRes;
 }
 
-function calcAge(el) { //callback functions
+//callback functions
+function calcAge(el) {
   return 2020 - el
 }
 
@@ -120,3 +121,31 @@ rates = arrayCalc(ages, maxHeartRate)
 console.log(ages)
 console.log(fullAges)
 console.log(rates)
+*/
+
+//First Class functions
+
+function interviewQuestion(job) {
+  if (job === "designer") {
+    return function(name) { //anonymous function
+      console.log(name + ", can you explain UX design?")
+    }
+  } else if (job === "teacher") {
+    return function(name) {
+      console.log("What subject do you teach, " + name + "?")
+    }
+  } else {
+    return function(name) {
+      console.log("Hello " + name + ", what do you do?")
+    }
+  }
+}
+
+interviewQuestion("teacher")("Andrew")
+
+teacherQuestion = interviewQuestion("teacher")
+designerQuestion = interviewQuestion("designer")
+otherQuestion = interviewQuestion()
+teacherQuestion("John")
+designerQuestion("Katie")
+otherQuestion("Sam")
