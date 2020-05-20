@@ -124,7 +124,7 @@ console.log(rates)
 */
 
 //First Class functions
-
+/*
 function interviewQuestion(job) {
   if (job === "designer") {
     return function(name) { //anonymous function
@@ -149,3 +149,25 @@ otherQuestion = interviewQuestion()
 teacherQuestion("John")
 designerQuestion("Katie")
 otherQuestion("Sam")
+*/
+
+
+//Invoked Function Expressions (IIFE)
+/*
+function game() {
+  score = Math.random() * 10
+  console.log(score >= 5)
+}
+game()
+*/
+(function () {
+  score = Math.random() * 10
+  console.log(score >= 5)
+})();
+
+//console.log(score)
+
+(function (goodLuck) {
+  score = Math.random() * 10
+  console.log(score >= 5 - goodLuck)
+})(5);
