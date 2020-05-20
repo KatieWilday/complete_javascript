@@ -31,7 +31,7 @@ console.log(john.lastName, jane.lastName, katie.lastName)
 
 
 //Object.create
-
+/*
 personProto = {
   calcAge: function() {
     console.log(2020 - this.yearOfBirth)
@@ -48,3 +48,75 @@ jane = Object.create(personProto,
   yearOfBirth: { value: 1980 },
   job: { value: "designer"}
 })
+*/
+
+//Primitives vs Objects
+/*
+a = 23
+b = a
+a = 46
+console.log(a, b)
+
+
+//Objects
+obj1 = {
+  name: "John",
+  agre: 22
+}
+
+obj2 = obj1
+obj1.age= 30
+console.log(obj1.age, obj2.age)
+
+//Functions
+age = 27
+obj = {
+  name: "Katie",
+  city: "New York"
+}
+
+function change(a, b) {
+  a = 30
+  b.city = "Broadalbin" //reference of object
+}
+
+change(age, obj)
+
+console.log(age, obj.city)
+*/
+
+//Passing Functions As Arguments
+
+years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++) { //looped through away
+        arrRes.push(fn(arr[i])); //pushed result into array
+    }
+    return arrRes;
+}
+
+function calcAge(el) { //callback functions
+  return 2020 - el
+}
+
+function isFullAge(el) {
+  return el >= 18
+}
+
+function maxHeartRate(el) {
+  if (el >= 18 && el <= 81) {
+    return Math.round(206.9 - (.67 * el)) //rounds to closet integer
+  } else {
+    return -1
+  }
+}
+
+ages = arrayCalc(years, calcAge)
+fullAges = arrayCalc(ages, isFullAge)
+rates = arrayCalc(ages, maxHeartRate)
+
+console.log(ages)
+console.log(fullAges)
+console.log(rates)
