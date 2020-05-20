@@ -1,6 +1,6 @@
 //Function Constructor: pattern for a "blueprint"
 
-john = {
+/*john = {
   name: "John",
   yearOfBirth: 1990,
   job: "teacher"
@@ -27,3 +27,24 @@ katie.calcAge()
 jane.calcAge()
 
 console.log(john.lastName, jane.lastName, katie.lastName)
+*/
+
+
+//Object.create
+
+personProto = {
+  calcAge: function() {
+    console.log(2020 - this.yearOfBirth)
+  }
+}
+john.name = "John"
+john.yearOfBirth = 1990
+john.job = "teacher"
+
+john = Object.create(personProto)
+jane = Object.create(personProto,
+{
+  name: { value: "Jane "},
+  yearOfBirth: { value: 1980 },
+  job: { value: "designer"}
+})
