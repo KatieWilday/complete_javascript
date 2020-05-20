@@ -190,7 +190,6 @@ retirementIceland = retirement(67)
 
 retirementGermany(1990)
 retirementIceland(1990)
-*/
 
 function interviewQuestion(job) {
   return function(name) {
@@ -205,3 +204,64 @@ function interviewQuestion(job) {
 }
 
 interviewQuestion("designer")("Andrew")
+*/
+
+//Bind, Call and Apply
+
+john = {
+  name: "John",
+  age: 26,
+  job: "teacher",
+  presentation: function(style, timeOfDay) {
+    if (style === "formal") {
+      console.log("Good moring " + timeOfDay + " ladies and gentlemen. I'm "  + this.name + this.job + this.age)
+    } else if (style === "friendly") {
+      console.log("Hey what's up? " + this.name + this.job + this.age + " Have a nice " + timeOfDay)
+    }
+  }
+}
+
+emily = {
+  name: "Emily",
+  age: 35,
+  job: "designer"
+}
+
+john.presentation("formal", "morning")
+
+john.presentation.call(emily, "friendly", "afternoon") //allows to set this variable to emily
+john.presentation.apply(emily, ["friendly", "afternoon"]) //second arg is an array
+
+johnFriendly = john.presentation.bind(john, "friendly") //creates a copy and return function
+johnFriendly("morning")
+johnFriendly("night")
+
+emilyFormal = john.presentation.bind(emily, "formal")
+emilyFormal("afternoon")
+
+
+
+
+years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++) { //loops through away
+        arrRes.push(fn(arr[i])); //pushed result into array
+    }
+    return arrRes;
+}
+
+//callback functions
+function calcAge(el) {
+  return 2020 - el
+}
+
+function isFullAge(limit, el) {
+  return el >= limit
+}
+
+ages = arrayCalc(years, calcAge)
+fullJapan = arrayCalc(ages, isFullAge.bind(this, 20))
+console.log(ages)
+console.log(fullJapan)
