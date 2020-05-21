@@ -13,6 +13,17 @@ budgetController = (function(){
     this.value = value
   }
 
+  data = {
+    allItems: {
+      exp: [],
+      inc: []
+    },
+    totals: {
+      exp: 0,
+      inc: 0
+    }
+  }
+
 })();
 
 //User Interface Controller
