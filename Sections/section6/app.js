@@ -1,20 +1,39 @@
 //Budget Controller
 budgetController = (function(){
 
-//Some code
+  Expense = function(id, description, value){
+    this.id = id
+    this.description = description
+    this.value = value
+  }
+
+  Income = function(id, description, value) {
+    this.id = id
+    this.description = description
+    this.value = value
+  }
 
 })();
 
 //User Interface Controller
 uIController = (function() {
 
+  domStrings = {
+    inputType: ".add__type",
+    inputDescription: ".add__description",
+    inputValue: ".add__value",
+    inputBtn: ".add__btn"
+  }
   return { //available globally
     getInput: function(){
       return {
-        type: document.querySelector(".add__type").value, //will be either inc or exp
-        description: document.querySelector(".add__description").value,
-        value: document.querySelector(".add__value").value
+        type: document.querySelector(domStrings.inputType).value, //will be either inc or exp
+        description: document.querySelector(domStrings.inputDescription).value,
+        value: document.querySelector(domStrings.inputValue).value
       }
+    },
+    getDOMStrings: function() {
+      return domStrings
     }
   }
 
@@ -23,7 +42,20 @@ uIController = (function() {
 //Global App Controller
 controller = (function(budgetCtrl, uICtrl){
 
+  function setupEventListeners() {
+    dom = uICtrl.getDOMStrings()
+
+    document.querySelector(dom.inputBtn).addEventListener("click", ctrlAddItem)
+
+    document.addEventListener("keypress", function(e){
+      if(e.keyCode === 13) {
+        ctrlAddItem();
+      }
+    })
+  }
+
   function ctrlAddItem() {
+
     //1. Get field input data
     input = uICtrl.getInput()
     console.log(input)
@@ -33,14 +65,13 @@ controller = (function(budgetCtrl, uICtrl){
     //4. Calculate budget
     //5. Display budget
   }
-
-  document.querySelector(".add__btn").addEventListener("click", ctrlAddItem)
-
-  document.addEventListener("keypress", function(e){
-    if(e.keyCode === 13) {
-      ctrlAddItem();
+  return { //make it public, put all the code we want to run at immediate start of app
+    init: function(){
+      setupEventListeners()
     }
-
-  })
+  }
 
 })(budgetController, uIController);
+
+
+controller.init();
