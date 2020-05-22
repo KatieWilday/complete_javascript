@@ -24,6 +24,35 @@ budgetController = (function(){
     }
   }
 
+  return {
+    addItem: function(type, des, val) {
+      var newItem, id;
+
+      //Create new id
+      if(data.allItems[type].length > 0){
+        id = data.allItems[type][data.allItems[type].length - 1].id + 1
+      } else {
+        id = 0;
+      }
+
+
+      //Create new item based on inc or exp type
+      if(type === "exp"){
+        newItem = new Expense(id, des, val)
+      } else if (type === "inc") {
+        newItem = new Income(id, des, val)
+      }
+      //Push it into our data structure
+      data.allItems[type].push(newItem)
+
+      //Return the new element
+      return newItem
+    },
+    testing: function(){
+      console.log(data)
+    }
+  }
+
 })();
 
 //User Interface Controller
@@ -60,18 +89,20 @@ controller = (function(budgetCtrl, uICtrl){
 
     document.addEventListener("keypress", function(e){
       if(e.keyCode === 13) {
-        ctrlAddItem();
+        ctrlAddItem()
       }
     })
   }
 
   function ctrlAddItem() {
-
+    var input, newItem
     //1. Get field input data
     input = uICtrl.getInput()
     console.log(input)
 
     //2. Add item to budget Controller
+    newItem = budgetCtrl.addItem(input.type, input.description, input.value)
+
     //3. Add new item to Interface
     //4. Calculate budget
     //5. Display budget
