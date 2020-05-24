@@ -71,7 +71,7 @@ uIController = (function() {
       return {
         type: document.querySelector(domStrings.inputType).value, //will be either inc or exp
         description: document.querySelector(domStrings.inputDescription).value,
-        value: document.querySelector(domStrings.inputValue).value
+        value: parseFloat(document.querySelector(domStrings.inputValue).value)
       }
     },
 
@@ -134,6 +134,13 @@ controller = (function(budgetCtrl, uICtrl){
       }
     })
   }
+  function updateBudget() {
+    //1. Calculate budget
+
+    //2. Returns the budget
+
+    //3. Display budget
+  }
 
   function ctrlAddItem() {
     var input, newItem
@@ -141,17 +148,20 @@ controller = (function(budgetCtrl, uICtrl){
     input = uICtrl.getInput()
     console.log(input)
 
-    //2. Add item to budget Controller
-    newItem = budgetCtrl.addItem(input.type, input.description, input.value)
+    if(input.description !== "" && !isNaN(input.value) && input.value > 0) {
+      //2. Add item to budget Controller
+      newItem = budgetCtrl.addItem(input.type, input.description, input.value)
 
-    //3. Add new item to Interface
-    uICtrl.addListItem(newItem, input.type);
+      //3. Add new item to Interface
+      uICtrl.addListItem(newItem, input.type);
 
-    //4. Clear the fields
-    uICtrl.clearFields();
+      //4. Clear the fields
+      uICtrl.clearFields();
 
-    //5. Calculate budget
-    //6. Display budget
+      //5. Calc and update budget
+      updateBudget();
+    }
+
   }
   return { //make it public, put all the code we want to run at immediate start of app
     init: function(){
