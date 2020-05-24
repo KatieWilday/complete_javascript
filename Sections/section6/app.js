@@ -101,6 +101,18 @@ uIController = (function() {
       //Insert HTML into the DOM
       document.querySelector(element).insertAdjacentHTML("beforeend", newHtml)
     },
+
+    clearFields: function() {
+      var fields, fieldsArray;
+      fields = document.querySelectorAll(domStrings.inputDescription + ", " + domStrings.inputValue) //returns a list not array
+      fieldsArray = Array.prototype.slice.call(fields) //slice - returns copy of array
+
+      fieldsArray.forEach(function(current, index, array) { //loops over all elements //can recieve up to 3 args (current, index, array)
+        current.value = "";
+      })
+      fieldsArray[0].focus()
+    },
+
     getDOMStrings: function() {
       return domStrings
     }
@@ -133,9 +145,13 @@ controller = (function(budgetCtrl, uICtrl){
     newItem = budgetCtrl.addItem(input.type, input.description, input.value)
 
     //3. Add new item to Interface
-    uICtrl.addListItem(newItem, input.type)
-    //4. Calculate budget
-    //5. Display budget
+    uICtrl.addListItem(newItem, input.type);
+
+    //4. Clear the fields
+    uICtrl.clearFields();
+
+    //5. Calculate budget
+    //6. Display budget
   }
   return { //make it public, put all the code we want to run at immediate start of app
     init: function(){
