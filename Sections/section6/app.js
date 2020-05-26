@@ -144,7 +144,8 @@ uIController = (function() {
     expensesLabel: ".budget__expenses--value",
     percentageLabel: ".budget__expenses--percentage",
     container: ".container",
-    expensesPercLabel: ".item__percentage"
+    expensesPercLabel: ".item__percentage",
+    dateLabel: ".budget__title--month"
 
   }
 
@@ -247,6 +248,15 @@ uIController = (function() {
       })
     },
 
+    displayDate: function(){
+      now = new Date(); //will return date of today
+      months = ["January", "Feburary", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"]
+      month = now.getMonth();
+      year = now.getFullYear();
+      document.querySelector(domStrings.dateLabel).textContent = months[month] + " " + year;
+    },
+
     getDOMStrings: function() {
       return domStrings
     }
@@ -346,6 +356,7 @@ controller = (function(budgetCtrl, uICtrl){
   return { //make it public, put all the code we want to run at immediate start of app
     init: function(){
       console.log("App has started")
+      uICtrl.displayDate()
       uICtrl.displayBudget({
         budget: 0,
         totalInc: 0,
