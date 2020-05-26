@@ -147,6 +147,21 @@ uIController = (function() {
     expensesPercLabel: ".item__percentage"
 
   }
+
+  formatNumber = function(num,type){
+    // + or - before #, 2 decimal points, comma separating thousands
+    num = Math.abs(num);
+    num = num.toFixed(2);
+    numSplit = num.split(".")
+    int = numSplit[0]
+    if(int.length > 3) {
+      int = int.substr(0, int.length - 3) + "," + int.substr(int.length - 3, 3)
+    }
+
+    dec = numSplit[1]
+    return (type === "exp" ? "-" : "+") + " " + int + "." + dec;
+  }
+
   return { //available globally
     getInput: function(){
       return {
@@ -177,7 +192,7 @@ uIController = (function() {
       //2. Replace placeholder text with actual data (from obj)
       newHtml = html.replace("%id%", obj.id)
       newHtml = newHtml.replace("%description%", obj.description)
-      newHtml = newHtml.replace("%value%", obj.value)
+      newHtml = newHtml.replace("%value%", formatNumber(obj.value, type))
 
       //Insert HTML into the DOM
       document.querySelector(element).insertAdjacentHTML("beforeend", newHtml)
@@ -227,8 +242,6 @@ uIController = (function() {
           current.textContent = "--"
         }
       })
-
-
     },
 
     getDOMStrings: function() {
