@@ -123,6 +123,7 @@ var john = ["John", 26]
 //var age = john[1]
 
 //ES6
+/*
 const [name, age] = ["John", 26]
 console.log(name)
 console.log(age)
@@ -149,3 +150,19 @@ function calcAgeRetirement(year) {
 const [age2, retirement] = calcAgeRetirement(1990)
 console.log(age2)
 console.log(retirement)
+*/
+
+
+//Arrays in ES6
+const boxes = document.querySelectorAll(".box")
+boxesArr = Array.from(boxes)
+Array.from(boxes).forEach(cur => cur.style.backgroundColor = "dodgerblue")
+
+//change text boxes
+
+for(const cur of boxesArr) {
+  if(cur.className.includes("blue")){
+    continue;
+  }
+  cur.textContent = "I changed to blue."
+}
