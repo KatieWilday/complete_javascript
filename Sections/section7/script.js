@@ -24,3 +24,23 @@ for(let i = 0; i < n; i++) {
 }
 //console.log(a + b)
 console.log(c)
+
+//strings in ES6
+
+let firstName = "Katie"
+let lastName = "Wilday"
+const yearOfBirth = 1988
+
+function calcAge(year) {
+  return 2020 - year
+}
+
+console.log(`This is ${firstName} ${lastName}.
+  She was born in ${yearOfBirth}.
+  Today she is ${calcAge(yearOfBirth)}.`)
+
+  const n = `${firstName} ${lastName}`
+  console.log(n.startsWith("K"))
+  console.log(n.endsWith("s"))
+  console.log(n.includes(" "))
+  console.log(firstName.repeat(5))
