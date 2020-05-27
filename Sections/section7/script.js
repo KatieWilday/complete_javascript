@@ -48,19 +48,67 @@ console.log(`This is ${firstName} ${lastName}.
 
 */
 //Arrow Functions
-
+/*
 const years = [1990, 1988, 1965, 1934]
 
-let ages = years.map(el => 2020 - el)
+let ages = years.map(el => 2020 - el) //1 arg, 1 line of code
 console.log(ages)
 
 ages6 = years.map((el, index) => `Age element ${index + 1}: ${2020 - el}.`)
 console.log(ages6)
 
-ages6 = years.map((el, index) => {
+ages6 = years.map((el, index) => { //more than one line of code
   const now = new Date().getFullYear()
   const age = now - el
   return `Age element ${index + 1}: ${age}.`
 })
 
 console.log(ages6)
+*/
+
+//Arrow Functions 2
+// Do not have a this keyword
+
+//ES5
+var box5 = {
+  color: "green",
+  position: 1,
+  clickMe: function(){
+    var self = this;
+    document.querySelector(".green").addEventListener("click", function(){
+      var str = "This box is number " + self.position + " and is " + self.color
+      alert(str)
+    })
+  }
+}
+
+
+//ES6
+//with arrow function you can access this keyword
+/*
+const box6 = {
+  color: "green",
+  position: 1,
+  clickMe: function(){
+
+    document.querySelector(".green").addEventListener("click", () => {
+      var str = "This box is number " + this.position + " and is " + this.color
+      alert(str)
+    })
+  }
+}
+box6.clickMe()
+
+var friends = ["Bob", "Jane", "Mark"]
+
+function Person(name) {
+  this.name = name
+}
+
+Person.prototype.myFriends6 = function(friends) {
+  var arr = friends.map(el =>
+  `${this.name} is friends with ${el}`)
+  console.log(arr)
+}
+new Person("Mike").myFriends6(friends)
+*/
