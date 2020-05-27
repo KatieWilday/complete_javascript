@@ -166,3 +166,7 @@ for(const cur of boxesArr) {
   }
   cur.textContent = "I changed to blue."
 }
+
+ages = [12, 17, 8, 21, 14, 11]
+console.log(ages.findIndex(cur => cur >= 18));
+console.log(ages.find(cur => cur >= 18))
