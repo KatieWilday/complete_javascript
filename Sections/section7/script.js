@@ -17,6 +17,7 @@ for(let i = 0; i < n; i++) {
 */
 
 //Blocks and IIFE
+/*
 {
   const a = 1
   let b = 2
@@ -44,3 +45,22 @@ console.log(`This is ${firstName} ${lastName}.
   console.log(n.endsWith("s"))
   console.log(n.includes(" "))
   console.log(firstName.repeat(5))
+
+*/
+//Arrow Functions
+
+const years = [1990, 1988, 1965, 1934]
+
+let ages = years.map(el => 2020 - el)
+console.log(ages)
+
+ages6 = years.map((el, index) => `Age element ${index + 1}: ${2020 - el}.`)
+console.log(ages6)
+
+ages6 = years.map((el, index) => {
+  const now = new Date().getFullYear()
+  const age = now - el
+  return `Age element ${index + 1}: ${age}.`
+})
+
+console.log(ages6)
