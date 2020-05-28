@@ -154,6 +154,7 @@ console.log(retirement)
 
 
 //Arrays in ES6
+/*
 const boxes = document.querySelectorAll(".box")
 boxesArr = Array.from(boxes)
 Array.from(boxes).forEach(cur => cur.style.backgroundColor = "dodgerblue")
@@ -170,3 +171,35 @@ for(const cur of boxesArr) {
 ages = [12, 17, 8, 21, 14, 11]
 console.log(ages.findIndex(cur => cur >= 18));
 console.log(ages.find(cur => cur >= 18))
+*/
+
+//Spread Operator
+//Expand elements of Array
+function addFourAges(a, b, c, d){
+  return a + b + c + d
+}
+
+sum1 = addFourAges(18, 20, 30, 31)
+console.log(sum1)
+
+//ES5
+var ages = [18, 30, 20, 31]
+var sum2 = addFourAges.apply(null, ages) //apply: take array and call function
+
+console.log(sum2)
+
+
+//ES6
+const sum3 = addFourAges(...ages) //expand array into components
+console.log(sum3)
+
+const familySmith = ["John", "Jane", "Mark"]
+const familyMiller = ["Mary", "Bob", "Anne"]
+const bigFamily = [...familySmith, "Lily", ...familyMiller]
+console.log(bigFamily)
+
+const h = document.querySelector("h1")
+const boxes = document.querySelectorAll(".box")
+const all = [h, ...boxes]
+
+Array.from(all).forEach(cur => cur.style.color = "purple") //returns array
