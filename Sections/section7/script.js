@@ -175,6 +175,7 @@ console.log(ages.find(cur => cur >= 18))
 
 //Spread Operator
 //Expand elements of Array
+/*
 function addFourAges(a, b, c, d){
   return a + b + c + d
 }
@@ -203,3 +204,27 @@ const boxes = document.querySelectorAll(".box")
 const all = [h, ...boxes]
 
 Array.from(all).forEach(cur => cur.style.color = "purple") //returns array
+*/
+
+//Rest Parameters
+//Pass arguments into functions and use those Parameters
+
+//ES5
+/*
+function isFullAge5() {
+  argsArray = Array.prototype.slice.call(arguments)
+  argsArray.forEach(function(cur){
+    console.log((2020 - cur) >= 18)
+  })
+}
+
+isFullAge5(1990, 1999, 1965)
+isFullAge5(2019, 1987)
+*/
+
+//ES6
+function isFullAge6(...years) { //transform into array and pass into function
+  years.forEach(cur => console.log((2020 - cur) >= 18))
+}
+
+isFullAge6(1990, 1999, 1965)
