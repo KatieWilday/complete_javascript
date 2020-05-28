@@ -283,7 +283,7 @@ emily = new SmithPerson("Emily", 2011, "Diaz", "Spanish")
 
 //Maps
 //map string keys to arbitrary values - can use any value booleans, strings, etc.
-
+/*
 const question = new Map()
 question.set("question", "What is the offical name of the latest major JavaScript version?")
 question.set(1, "ES5")
@@ -312,3 +312,44 @@ for(let [key, value] of question.entries()) {
 
 const ans = parseInt(prompt("Write the correct answer"))
 console.log(question.get(ans === question.get("correct")))
+*/
+
+//Classes
+//make it easier to impliment inheritance
+
+//ES5
+Person5 = function(name, yearOfBirth, job) {
+  this.name = name
+  this.yearOfBirth = yearOfBirth
+  this.job = job
+}
+
+Person5.prototype.calcAge = function() {
+  age = new Date().getFullYear - yearOfBirth
+  console.log(age)
+}
+
+john5 = new Person5("John", 1990, "teacher")
+
+
+//ES6
+class Person6 {
+  constructor (name, yearOfBirth, job) {
+    this.name = name
+    this.yearOfBirth = yearOfBirth
+    this.job = job
+  }
+
+  calcAge() {
+    age = new Date().getFullYear - yearOfBirth
+    console.log(age)
+  }
+
+  static greeting() {
+    console.log("Hey there!")
+  }
+}
+
+const katie6 = new Person6("Katie", 1988, "software engineer")
+
+Person6.greeting()
