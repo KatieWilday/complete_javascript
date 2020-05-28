@@ -220,11 +220,62 @@ function isFullAge5() {
 
 isFullAge5(1990, 1999, 1965)
 isFullAge5(2019, 1987)
-*/
 
 //ES6
-function isFullAge6(...years) { //transform into array and pass into function
+function isFullAge6(...years) { //transforms into array and pass into function
   years.forEach(cur => console.log((2020 - cur) >= 18))
 }
 
 isFullAge6(1990, 1999, 1965)
+
+
+//ES5
+function isFullAge5(limit) {
+  argsArray = Array.prototype.slice.call(arguments, 1) //slice allows us to cut piece of array
+  argsArray.forEach(function(cur){
+    console.log((2020 - cur) >= limit)
+  })
+}
+
+isFullAge5(16, 1990, 2014, 1965)
+
+//ES6
+function isFullAge6(limit, ...years) { //transforms into array and pass into function
+  years.forEach(cur => console.log((2020 - cur) >= limit))
+}
+
+isFullAge6(12, 1990, 1999, 1965)
+*/
+
+//Default Parameters
+//One or more paramters to be preset - default value
+
+//ES5
+/*
+function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
+
+  lastName === undefined ? lastName = "Smith" : lastName = lastName
+  nationality === undefined ? nationality = "American" : nationality = nationality
+
+  this.firstName = firstName
+  this.yearOfBirth = yearOfBirth
+  this.lastName = lastName
+  this.nationality = nationality
+}
+
+john = new SmithPerson("John", 1990)
+emily = new SmithPerson("Emily", 2011, "Diaz", "Spanish")
+*/
+
+//ES6
+
+function SmithPerson(firstName, yearOfBirth, lastName = "Smith", nationality = "American") {
+  this.firstName = firstName
+  this.yearOfBirth = yearOfBirth
+  this.lastName = lastName
+  this.nationality = nationality
+}
+
+
+john = new SmithPerson("John", 1990)
+emily = new SmithPerson("Emily", 2011, "Diaz", "Spanish")
