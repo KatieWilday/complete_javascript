@@ -62,6 +62,7 @@ const getRelated = publisher => {
   })
 }
 
+/*
 getIDs
 .then(ids => { //used to handle fulfilled promise
   console.log(ids) //result of succesful promise
@@ -77,3 +78,16 @@ getIDs
 .catch(error => {
   console.log(error)
 })
+*/
+
+//Promises to Async/Await
+
+async function getRecipeAW() {
+  const ids = await getIDs
+  console.log(ids)
+  const recipe = await getRecipe(ids[2])
+  console.log(recipe)
+  const related = await getRelated("Katie")
+  console.log(related)
+}
+getRecipeAW()
