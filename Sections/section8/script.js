@@ -37,7 +37,7 @@ getRecipe()
 
 //Promises
 //Object that keeps track about whether a certain event has happened or not
-
+/*
 const getIDs = new Promise((resolve, reject) => { //executer function takes resolve, reject
   setTimeout(() => { //Asynchronous code
     resolve([15, 12, 26, 64]) //successful-pass in data
@@ -62,7 +62,7 @@ const getRelated = publisher => {
   })
 }
 
-/*
+
 getIDs
 .then(ids => { //used to handle fulfilled promise
   console.log(ids) //result of succesful promise
@@ -78,10 +78,9 @@ getIDs
 .catch(error => {
   console.log(error)
 })
-*/
 
 //Promises to Async/Await
-
+//await can only be used inside an asynch function
 async function getRecipeAW() {
   const ids = await getIDs
   console.log(ids)
@@ -91,3 +90,44 @@ async function getRecipeAW() {
   console.log(related)
 }
 getRecipeAW()
+*/
+
+//AJAX and API
+//Asynchronous JavaScript and XML
+//Application Programming Interface - allows apps to talk to eachother
+
+function getWeather(woeid) {
+  fetch(`https://crossorigin.me/https://www.metaweather.com/api/location/${woeid}/`)
+  .then(result => {
+  // console.log(result);
+    return result.json();
+  })
+  .then(data => {
+  // console.log(data);
+    const today = data.consolidated_weather[0];
+    console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`);
+  })
+  .catch(error => console.log(error));
+  }
+  getWeather(2487956);
+  getWeather(44418);
+
+
+  async function getWeatherAW(woeid) {
+    try {
+      const result = await fetch(`https://crossorigin.me/https://www.metaweather.com/api/location/${woeid}/`);
+      const data = await result.json();
+      const tomorrow = data.consolidated_weather[1];
+      console.log(`Temperatures tomorrow in ${data.title} stay between ${tomorrow.min_temp} and ${tomorrow.max_temp}.`);
+        return data;
+    } catch(error) {
+      alert(error);
+      }
+    }
+    getWeatherAW(2487956);
+
+  let dataLondon;
+    getWeatherAW(44418).then(data => {
+      dataLondon = data
+      console.log(dataLondon);
+    });
