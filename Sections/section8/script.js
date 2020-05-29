@@ -95,7 +95,7 @@ getRecipeAW()
 //AJAX and API
 //Asynchronous JavaScript and XML
 //Application Programming Interface - allows apps to talk to eachother
-
+/*
 function getWeather(woeid) {
   fetch(`https://crossorigin.me/https://www.metaweather.com/api/location/${woeid}/`)
   .then(result => {
@@ -131,3 +131,4 @@ function getWeather(woeid) {
       dataLondon = data
       console.log(dataLondon);
     });
+*/
